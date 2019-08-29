@@ -27,9 +27,15 @@ RUN mkdir -p ${INSTALL} && \
 	cd .. && \
 	rm -rf ${INSTALL}
 
-RUN curl https://developer.nordicsemi.com/nRF5_SDK/nRF5_SDK_v15.x.x/nRF5_SDK_15.3.0_59ac345.zip -o nRF5_SDK_15.3.0_59ac345.zip && \
+ENV INSTALL="/nordic"
+
+RUN mkdir -p ${INSTALL} && \
+	cd ${INSTALL} && \
+	curl https://developer.nordicsemi.com/nRF5_SDK/nRF5_SDK_v15.x.x/nRF5_SDK_15.3.0_59ac345.zip -o nRF5_SDK_15.3.0_59ac345.zip && \
 	unzip nRF5_SDK_15.3.0_59ac345.zip && \
-	rm nRF5_SDK_15.3.0_59ac345.zip
+	rm nRF5_SDK_15.3.0_59ac345.zip && \
+	ln -sf ${INSTALL}/nRF5_SDK_15.3.0_59ac345 /sdk && \
+	cd ..
 
 ENV INSTALL=
 
