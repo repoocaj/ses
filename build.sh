@@ -1,8 +1,16 @@
 #!/usr/bin/env bash
 
-docker build config_3.50_sdk_15.0.0 -t josschne/ses:3.50_sdk_15.0.0
-docker build config_3.50_sdk_15.2.0 -t josschne/ses:3.50_sdk_15.2.0
+set -euo pipefail
 
-#Test the new image with a smoke test
-GET_VERSION=$(docker run -it josschne/ses:3.50_sdk_15.0.0 /ses/bin/emBuild | grep Release)
-GET_VERSION=$(docker run -it josschne/ses:3.50_sdk_15.2.0 /ses/bin/emBuild | grep Release)
+TAG_PREFIX="repoocaj/ses"
+
+BUILDS=(3.50_sdk_15.0.0 3.50_sdk_15.2.0 4.20_sdk_15.3.0 4.22_sdk_15.3.0)
+
+for build in ${BUILDS[@]}
+do
+    docker build config_${build} -t ${TAG_PREFIX}:${build}
+
+    #Test the new image with a smoke test
+    GET_VERSION=$(docker run -it --rm ${TAG_PREFIX}:${build} /ses/bin/emBuild | grep Release)
+    echo "Built ${build}, version is ${GET_VERSION}"
+done
