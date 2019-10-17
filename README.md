@@ -1,6 +1,6 @@
 ## Segger Embedded Studio Docker Image
 
-Basic image to allos Segger Embedded Studio (SES) builds from Docker.
+Basic image to allow Segger Embedded Studio (SES) builds from Docker.
 
 I am using this for continuous integration (CI) of SES projects.
 
