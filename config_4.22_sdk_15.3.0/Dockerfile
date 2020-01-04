@@ -10,10 +10,10 @@ ENV INSTALL="/tmp/install"
 
 RUN mkdir -p ${INSTALL} && \
 	cd ${INSTALL} && \
-	curl https://www.nordicsemi.com/-/media/Software-and-other-downloads/Desktop-software/nRF-command-line-tools/sw/Versions-10-x-x/nRFCommandLineTools1030Linuxamd64tar.gz -o nrftools.tar.gz && \
+	curl https://www.nordicsemi.com/-/media/Software-and-other-downloads/Desktop-software/nRF-command-line-tools/sw/Versions-10-x-x/nRFCommandLineTools1050Linuxamd64tar.gz -o nrftools.tar.gz && \
 	tar xf nrftools.tar.gz && \
-	dpkg -i --force-overwrite JLink_Linux_V644e_x86_64.deb && \
-	dpkg -i --force-overwrite nRF-Command-Line-Tools_10_3_0_Linux-amd64.deb && \
+	dpkg -i --force-overwrite JLink_Linux_V654c_x86_64.deb && \
+	dpkg -i --force-overwrite nRF-Command-Line-Tools_10_5_0_Linux-amd64.deb && \
 	cd .. && \
 	rm -rf ${INSTALL}
 

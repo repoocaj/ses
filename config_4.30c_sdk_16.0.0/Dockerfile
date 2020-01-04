@@ -21,7 +21,7 @@ ENV PATH="/opt/mergehex:/opt/nrfjprog:$PATH"
 
 RUN mkdir -p ${INSTALL} && \
 	cd ${INSTALL} && \
-	curl https://www.segger.com/downloads/embedded-studio/Setup_EmbeddedStudio_ARM_v422_linux_x64.tar.gz -o ses.tar.gz && \
+	curl https://www.segger.com/downloads/embedded-studio/Setup_EmbeddedStudio_ARM_v430c_linux_x64.tar.gz -o ses.tar.gz && \
 	tar xf ses.tar.gz && \
 	echo "yes" | DISPLAY=:1 $(find arm_segger_* -name "install_segger*") --copy-files-to /ses && \
 	cd .. && \
