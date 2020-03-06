@@ -10,6 +10,14 @@ Nordic SDK versions.
 
 The SES tools are installed into the image under `/ses`. For my purposes, I use `/ses/bin/emBuild`.
 
+To build all of the images locally run:
+
+```./build.sh```
+
+Each image variant is kept in a separate directory named like config_{SES_VERSION}_{SDK_VERSION}. Each image to build
+is listed at the top of the build.sh script.
+
+
 Example:
 
 ```docker run -it --rm josschne/ses /ses/bin/emBuild```
